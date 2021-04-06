@@ -1,4 +1,4 @@
-package com.wasthDevocde.JIAT_Codefest.Model;
+package com.wasthDevocde.JIAT_Codefest.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

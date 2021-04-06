@@ -1,7 +1,7 @@
-package com.wasthDevocde.JIAT_Codefest.Controller;
+package com.wasthDevocde.JIAT_Codefest.controller;
 
-import com.wasthDevocde.JIAT_Codefest.Model.WikiKeyWords;
-import com.wasthDevocde.JIAT_Codefest.Service.WikiService;
+import com.wasthDevocde.JIAT_Codefest.model.WikiKeyWords;
+import com.wasthDevocde.JIAT_Codefest.service.WikiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

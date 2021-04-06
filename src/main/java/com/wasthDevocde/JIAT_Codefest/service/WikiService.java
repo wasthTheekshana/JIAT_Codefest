@@ -1,7 +1,7 @@
-package com.wasthDevocde.JIAT_Codefest.Service;
+package com.wasthDevocde.JIAT_Codefest.service;
 
-import com.wasthDevocde.JIAT_Codefest.Model.WikiKeyWords;
-import com.wasthDevocde.JIAT_Codefest.Repositries.WordRepositry;
+import com.wasthDevocde.JIAT_Codefest.model.WikiKeyWords;
+import com.wasthDevocde.JIAT_Codefest.repositories.WordRepositry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

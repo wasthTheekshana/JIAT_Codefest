@@ -1,6 +1,6 @@
-package com.wasthDevocde.JIAT_Codefest.Repositries;
+package com.wasthDevocde.JIAT_Codefest.repositories;
 
-import com.wasthDevocde.JIAT_Codefest.Model.WikiKeyWords;
+import com.wasthDevocde.JIAT_Codefest.model.WikiKeyWords;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

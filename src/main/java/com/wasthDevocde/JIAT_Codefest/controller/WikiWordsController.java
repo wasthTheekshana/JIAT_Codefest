@@ -16,11 +16,14 @@ public class WikiWordsController {
     @Autowired
     WikiService wikiService;
 
-    @GetMapping("{name}")
+    @GetMapping("/getWordsByNameLike/{name}")
     public List<WikiKeyWords> getUserLikeName(@PathVariable String name){
           return wikiService.getWikiKeyWordsByDescription(name);
     }
-
+    @GetMapping(path = "/getWords")
+    public List<WikiKeyWords> getWords() {
+        return wikiService.getWords();
+    }
     @PostMapping
     public HashMap<String, Object> saveUsers(WikiKeyWords users){
 //        return userService.addUser(users);

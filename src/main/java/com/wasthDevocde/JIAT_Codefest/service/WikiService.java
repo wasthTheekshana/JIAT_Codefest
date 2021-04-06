@@ -15,7 +15,10 @@ public class WikiService {
     public List<WikiKeyWords> getAllWords() {
         return wordRepositry.findAll();
     }
-
+    public List<WikiKeyWords> getWords() {
+        List<WikiKeyWords> userList = wordRepositry.findAll();
+        return userList;
+    }
     ///save keywords
     public WikiKeyWords saveWords(WikiKeyWords u){
         return wordRepositry.save(u);

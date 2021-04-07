@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <title>CodeFest</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+
+    <![endif]-->
+
+
+<!--    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+<!--    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"
+            integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw=="
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css"
+          integrity="sha512-8D+M+7Y6jVsEa7RD6Kv/Z7EImSpNpQllgaEIQAtqHcI0H6F4iZknRj0Nx1DCdB+TwBaS+702BGWYC0Ze2hpExQ=="
+          crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+</head>
+
+<body class="fix-header card-no-border">
+<!-- ============================================================== -->
+<!-- Preloader - style you can find in spinners.css -->
+<!-- ============================================================== -->
+<div class="preloader">
+    <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+</div>
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper">
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <header class="topbar">
+        <nav class="navbar top-navbar navbar-expand-md navbar-light">
+
+            <div class="navbar-collapse">
+                <!-- ============================================================== -->
+                <!-- toggle and nav items -->
+                <!-- ============================================================== -->
+                <ul class="navbar-nav mr-auto mt-md-0">
+                    <!-- This is  -->
+                    <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+                    <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <!-- ============================================================== -->
+    <!-- End Topbar header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <aside class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div class="scroll-sidebar">
+
+            <nav class="sidebar-nav">
+                <ul id="sidebarnav">
+                    <li class="nav-devider"></li>
+<!--                    <li class="nav-small-cap"></li>-->
+                    <li onclick="user()">
+                        <a  class="waves-effect waves-dark"><i class="mdi mdi-account"></i>Users</a>
+                    </li>
+
+                    <li onclick="category()">
+                        <a  class="waves-effect waves-dark" ><i class="mdi mdi-widgets"></i>User Role</a>
+                    </li>
+                    <li onclick="product()">
+                        <a  class="waves-effect waves-dark" ><i class="fa fa-product-hunt"></i>Words</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+    </aside>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor" id="title">Manage Users</h3>
+            </div>
+<!--            <div class="col-md-7 align-self-center">-->
+<!--                <ol class="breadcrumb">-->
+<!--                    <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>-->
+<!--                    <li class="breadcrumb-item">Forms</li>-->
+<!--                    <li class="breadcrumb-item active">Form Layout</li>-->
+<!--                </ol>-->
+<!--            </div>-->
+            <div class="">
+                <button class="right-side-toggle waves-effect waves-light btn-inverse btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid" id="user_container">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <!-- Row -->
+            <input type="hidden" value="insert" id="user_type">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div id="div_button_user" class="col-md-offset-3 col-md-9">
+                            <button onclick="show_insert_form_user()" class="btn btn-info">Add New User</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            <br>
+            <!-- Row -->
+            <!-- Row -->
+            <div id="div_add_user">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-outline-info">
+
+                            <div class="card-body">
+                                <form id="form_insert_user" name="form_insert" role="form" method="POST" class="form-horizontal"
+                                      enctype="multipart/form-data">
+                                    <div class="form-body">
+                                        <h3 class="box-title" style="color: white;">User Details</h3>
+                                        <hr class="m-t-0 m-b-40">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group row mb-3">
+                                                    <label for="name"
+                                                           class="control-label text-right col-md-2">Name</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" id="name" name="name"
+                                                               class="form-control" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mb-3">
+                                                    <label for="username"
+                                                           class="control-label text-right col-md-2">Username</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" id="username" name="username"
+                                                               class="form-control" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mb-3">
+                                                    <label for="password"
+                                                           class="control-label text-right col-md-2">Password</label>
+                                                    <div class="col-md-10">
+                                                        <input type="password" id="password" name="password"
+                                                               class="form-control" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mb-3">
+                                                    <label for="telephone"
+                                                           class="control-label text-right col-md-2">Mobile</label>
+                                                    <div class="col-md-10">
+                                                        <input type="tel" id="telephone" name="telephone"
+                                                               class="form-control" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mb-3">
+                                                    <label for="age"
+                                                           class="control-label text-right col-md-2">age</label>
+                                                    <div class="col-md-10">
+                                                        <input type="number" id="age" name="age"
+                                                               class="form-control" required>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-actions">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-offset-3 col-md-9">
+                                                        <button type="submit" class="btn btn-success">Insert</button>
+                                                        <button type="reset" class="btn btn-inverse">Clear</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Row -->
+
+            <!-- Row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-outline-info">
+                        <div class="card-header">
+                            <h4 class="m-b-0"style="color: white;">User details</h4>
+                        </div>
+                        <div class="card-body">
+                            <!--                    <div class="table-responsive m-t-40">-->
+                            <!--                        <table id="myTable" class="table table-bordered table-striped">-->
+                            <!--                        </table>-->
+                            <!--                    </div>-->
+
+                            <div>
+<!--                                <input type="text" id="search" />-->
+
+<!--                                <select onchange="userdata()" id="drop">-->
+
+<!--                                    <option>Search Users</option>-->
+<!--                                    <option>getUserById</option>-->
+<!--                                    <option>getUserByName</option>-->
+<!--                                    <option>getUserByTelephone</option>-->
+<!--                                    <option>getUserByAge</option>-->
+
+<!--                                </select>-->
+<!--                                <button onclick="search()" class="btn btn-primary">Search</button>-->
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>User Id</th>
+                                        <th>Age</th>
+                                        <th>Name</th>
+                                        <th>Telephone</th>
+                                        <th class="text-nowrap">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tbody">
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="container-fluid" id="category_container">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <!-- Row -->
+            <input type="hidden" value="insert" id="type_category">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div id="div_button_category" class="col-md-offset-3 col-md-9">
+                            <button onclick="show_insert_form_category()" class="btn btn-info">Add New User Role</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            <br>
+            <!-- Row -->
+            <!-- Row -->
+            <div id="div_add_category">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-outline-info">
+
+                            <div class="card-body">
+                                <form id="form_insert_category" name="form_insert" role="form" method="POST" class="form-horizontal"
+                                      enctype="multipart/form-data">
+                                    <div class="form-body">
+                                        <h3 class="box-title">User Role Details</h3>
+                                        <hr class="m-t-0 m-b-40">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group row mb-3">
+                                                    <label for="name"
+                                                           class="control-label text-right col-md-2">User Role</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" id="role" name="role"
+                                                               class="form-control" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mb-3">
+                                                    <label for="username"
+                                                           class="control-label text-right col-md-2">Role Description</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" id="role_desc" name="role_desc"
+                                                               class="form-control" required>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-actions">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-offset-3 col-md-9">
+                                                        <button type="submit" class="btn btn-success">Insert</button>
+                                                        <button type="reset" class="btn btn-inverse">Clear</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Row -->
+
+            <!-- Row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-outline-info">
+                        <div class="card-header">
+                            <h4 class="m-b-0">User Role details</h4>
+                        </div>
+                        <div class="card-body">
+                            <!--                    <div class="table-responsive m-t-40">-->
+                            <!--                        <table id="myTable" class="table table-bordered table-striped">-->
+                            <!--                        </table>-->
+                            <!--                    </div>-->
+
+                            <div>
+                                <!--                                <input type="text" id="search" />-->
+
+                                <!--                                <select onchange="userdata()" id="drop">-->
+
+                                <!--                                    <option>Search Users</option>-->
+                                <!--                                    <option>getUserById</option>-->
+                                <!--                                    <option>getUserByName</option>-->
+                                <!--                                    <option>getUserByTelephone</option>-->
+                                <!--                                    <option>getUserByAge</option>-->
+
+                                <!--                                </select>-->
+                                <!--                                <button onclick="search()" class="btn btn-primary">Search</button>-->
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Category Id</th>
+                                        <th>Category Name</th>
+                                        <th>Category Description</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tbody">
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="container-fluid" id="product_container">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <!-- Row -->
+            <input type="hidden" value="insert" id="type">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div id="div_button_product" class="col-md-offset-3 col-md-9">
+                            <button onclick="show_insert_form_product()" class="btn btn-info">Add New Word</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            <br>
+            <!-- Row -->
+            <!-- Row -->
+            <div id="div_add">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card card-outline-info">
+
+                            <div class="card-body">
+                                <form id="form_insert_product" name="form_insert" role="form" method="POST" class="form-horizontal"
+                                      enctype="multipart/form-data">
+                                    <div class="form-body">
+                                        <h3 class="box-title">Word Details</h3>
+                                        <hr class="m-t-0 m-b-40">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group row mb-3">
+                                                    <label for="name"
+                                                           class="control-label text-right col-md-2">Word</label>
+                                                    <div class="col-md-10">
+                                                        <input type="text" id="product_name" name="product_name"
+                                                               class="form-control" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mb-3">
+                                                    <label for="username"
+                                                           class="control-label text-right col-md-2">Key Tags</label>
+                                                    <div class="col-md-10">
+                                                        <input type="number" id="buying_price" name="buying_price"
+                                                               class="form-control" required>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mb-3">
+                                                    <label for="password"
+                                                           class="control-label text-right col-md-2">Description</label>
+                                                    <div class="col-md-10">
+                                                        <input type="number" id="selling_price" name="selling_price"
+                                                               class="form-control" required>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="form-actions">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="row">
+                                                    <div class="col-md-offset-3 col-md-9">
+                                                        <button type="submit" class="btn btn-success">Insert</button>
+                                                        <button type="reset" class="btn btn-inverse">Clear</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Row -->
+
+            <!-- Row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-outline-info">
+                        <div class="card-header">
+                            <h4 class="m-b-0">Word details</h4>
+                        </div>
+                        <div class="card-body">
+                            <!--                    <div class="table-responsive m-t-40">-->
+                            <!--                        <table id="myTable" class="table table-bordered table-striped">-->
+                            <!--                        </table>-->
+                            <!--                    </div>-->
+
+                            <div>
+                                <!--                                <input type="text" id="search" />-->
+
+                                <!--                                <select onchange="userdata()" id="drop">-->
+
+                                <!--                                    <option>Search Users</option>-->
+                                <!--                                    <option>getUserById</option>-->
+                                <!--                                    <option>getUserByName</option>-->
+                                <!--                                    <option>getUserByTelephone</option>-->
+                                <!--                                    <option>getUserByAge</option>-->
+
+                                <!--                                </select>-->
+                                <!--                                <button onclick="search()" class="btn btn-primary">Search</button>-->
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Product Id</th>
+                                        <th>Product Name</th>
+                                        <th>Product Description</th>
+                                        <th>Buying Price</th>
+                                        <th>Selling Price</th>
+                                        <th>Qty</th>
+                                        <th class="text-nowrap">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tbody">
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <footer class="footer">
+<!--            © 2017 Admin Press Admin by themedesigner.in-->
+        </footer>
+
+    </div>
+
+</div>
+
+
+
+<!--<script src="../assets/plugins/jquery/jquery.min.js"></script>-->
+<!-- Bootstrap tether Core JavaScript -->
+<script src="assets/plugins/bootstrap/js/popper.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="js/jquery.slimscroll.js"></script>
+<!--Wave Effects -->
+<script src="js/waves.js"></script>
+<!--Menu sidebar -->
+<script src="js/sidebarmenu.js"></script>
+<!--stickey kit -->
+<script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+<script src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
+<!--Custom JavaScript -->
+<script src="js/custom.min.js"></script>
+<!-- ============================================================== -->
+<!-- Style switcher -->
+<!-- ============================================================== -->
+<script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+
+
+
+<script>
+
+
+    function user() {
+        $('#user_container').show();
+        $('#category_container').hide();
+        $('#product_container').hide();
+        $('#title').html("Manage Users");
+        loadTableUser();
+    }
+
+    function category() {
+        $('#user_container').hide();
+        $('#category_container').show();
+        $('#product_container').hide();
+        $('#title').html("Manage Categories");
+    }
+
+    function product() {
+        $('#user_container').hide();
+        $('#category_container').hide();
+        $('#product_container').show();
+        $('#title').html("Manage Product");
+    }
+
+    function show_insert_form_user() {
+        var content = '';
+        content += '<button onclick="hide_insert_form_user()" class="btn btn-info">Hide Form</button>';
+        $('#div_button_user').html(content);
+        $("#div_add_user").show();
+    }
+
+    function hide_insert_form_user() {
+        var content = '';
+        content += '<button onclick="show_insert_form_user()" class="btn btn-info">Add New User</button>';
+        $('#div_button_user').html(content);
+        $("#div_add_user").hide();
+    }
+
+
+    function show_insert_form_category() {
+        var content = '';
+        content += '<button onclick="hide_insert_form_category()" class="btn btn-info">Hide Form</button>';
+        $('#div_button_category').html(content);
+        $("#div_add_category").show();
+    }
+
+    function hide_insert_form_category() {
+        var content = '';
+        content += '<button onclick="show_insert_form_category()" class="btn btn-info">Add New Category</button>';
+        $('#div_button_category').html(content);
+        $("#div_add_category").hide();
+    }
+
+    function show_insert_form_product() {
+        var content = '';
+        content += '<button onclick="hide_insert_form_product()" class="btn btn-info">Hide Form</button>';
+        $('#div_button_product').html(content);
+        $("#div_add").show();
+    }
+
+    function hide_insert_form_product() {
+        var content = '';
+        content += '<button onclick="show_insert_form_product()" class="btn btn-info">Add New Product</button>';
+        $('#div_button_product').html(content);
+        $("#div_add").hide();
+    }
+
+
+
+
+    // function hide_update_form() {
+    //     var content = '';
+    //     content += '<button onclick="show_update_form()" class="btn btn-info">Show Update Form</button>';
+    //     $('#div_button').html(content);
+    //     $("#div_edit").hide();
+    // }
+    //
+    // function show_update_form() {
+    //     var content = '';
+    //     content += '<button onclick="hide_update_form()" class="btn btn-info">Hide Form</button>';
+    //     $('#div_button').html(content);
+    //     $("#div_edit").show();
+    // }
+
+
+    function loadTableUser() {
+        $.ajax({
+            url: '/users',
+            type: "GET",
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            cache: false,
+            async: false,
+            error: function (error) {
+
+                console.log(error)
+            },
+            success: function (r) {
+                console.log(r)
+                let value = '';
+                for (var item in r) {
+                    value += '<tr>';
+                    value += '<td>' + r[item].id + '</td>';
+                    value += '<td>' + r[item].age + '</td>';
+                    value += '<td>' + r[item].name + '</td>';
+                    value += '<td>' + r[item].telephone + '</td>';
+                    value += '<td>' + r[item].username + '</td>';
+                    value += '<td class="text-nowrap">';
+                    value += '<a href="#" data-toggle="tooltip" data-original-title="Edit" class="mr-3"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>';
+                    value += '<a href="#" data-toggle="tooltip" data-original-title="Close" class="ml-2"> <i class="fa fa-times text-danger"></i> </a>';
+                    value += '</td>';
+                    value += '</tr>';
+                }
+                $('#tbody').html(value);
+            }
+        });
+    }
+
+
+
+    // function search() {
+    //     var name = document.getElementById('search').value;
+    //     var values = document.getElementById("drop");
+    //     var gettext = values.options[values.selectedIndex].text;
+    //
+    //     $.ajax({
+    //         url: '/user/' + gettext + "/" + name,
+    //         type: "GET",
+    //         processData: false,
+    //         contentType: false,
+    //         dataType: 'json',
+    //         cache: false,
+    //         async: false,
+    //         error: function (error) {
+    //
+    //             console.log(error)
+    //         },
+    //         success: function (r) {
+    //             console.log(r)
+    //             let value = '';
+    //             $('#tbody').html(value);
+    //
+    //             if(r.length > 0){
+    //                 for (var item in r) {
+    //                     value += '<tr>';
+    //                     value += '<td>' + r[item].id + '</td>';
+    //                     value += '<td>' + r[item].age + '</td>';
+    //                     value += '<td>' + r[item].name + '</td>';
+    //                     value += '<td>' + r[item].telephone + '</td>';
+    //                     value += '<td>' + r[item].username + '</td>';
+    //                     value += '<td class="text-nowrap">';
+    //                     value += '<a href="#" data-toggle="tooltip" data-original-title="Edit" class="mr-3"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>';
+    //                     value += '<a href="#" data-toggle="tooltip" data-original-title="Close" class="ml-2"> <i class="fa fa-times text-danger"></i> </a>';
+    //                     value += '</td>';
+    //                     value += '</tr>';
+    //                 }
+    //             }else{
+    //                 value += '<tr>';
+    //                 value += '<td>' + r.id + '</td>';
+    //                 value += '<td>' + r.age + '</td>';
+    //                 value += '<td>' + r.name + '</td>';
+    //                 value += '<td>' + r.telephone + '</td>';
+    //                 value += '<td>' + r.username + '</td>';
+    //                 value += '<td class="text-nowrap">';
+    //                 value += '<a href="#" data-toggle="tooltip" data-original-title="Edit" class="mr-3"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>';
+    //                 value += '<a href="#" data-toggle="tooltip" data-original-title="Close" class="ml-2"> <i class="fa fa-times text-danger"></i> </a>';
+    //                 value += '</td>';
+    //                 value += '</tr>';
+    //             }
+    //
+    //
+    //             $('#tbody').html(value);
+    //         }
+    //     });
+    // }
+
+
+    $(document).ready(function () {
+
+
+        $("#div_add_user").hide();
+        $("#div_add_category").hide();
+        $("#div_add").hide();
+
+        user();
+
+
+        $("#form_insert_user").validate({
+            ignore: [],
+            rules: {
+                txt_name: {
+                    required: true
+                },
+                txt_username: {
+                    required: true
+                },
+                txt_password: {
+                    required: true
+                },
+                file_mobile: {
+                    required: true
+                }
+            },
+            submitHandler: function (form) {
+
+                $.ajax({
+                    url: '/users',
+                    type: "post",
+                    data: new FormData(form),
+                    processData: false,
+                    contentType: false,
+                    dataType: 'json',
+                    cache: false,
+                    async: false,
+                    error: function (error) {
+
+                        $.toast({
+                            heading: 'Error',
+                            text: 'Operation failed!',
+                            position: 'top-right',
+                            loaderBg: '#effff8',
+                            icon: 'error',
+                            hideAfter: 3500
+                        });
+                    },
+                    success: function (r) {
+                        if (r.status == 200) {
+                            $.toast({
+                                heading: 'Success',
+                                text: r.message,
+                                position: 'top-right',
+                                loaderBg: '#effff8',
+                                icon: 'info',
+                                hideAfter: 3500
+                            });
+
+                            $("#name").val("");
+                            $("#username").val("");
+                            $("#password").val("");
+                            $("#telephone").val("");
+                            $("#age").val("");
+                            loadTableUser();
+                        }
+
+                        if (r.status == 500) {
+                            $.toast({
+                                heading: 'Error',
+                                text: r.message,
+                                position: 'top-right',
+                                loaderBg: '#effff8',
+                                icon: 'error',
+                                hideAfter: 3500
+                            });
+                        }
+
+                    }
+                });
+            }
+
+        });
+
+    });
+</script>
+
+
+</body>
+
+</html>

@@ -17,7 +17,7 @@
         <li class="pull-right"><a href="" class="text-muted"><i class="fa fa-refresh"></i></a></li>
     </ol>
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="#tbody">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <div class="well search-result">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Search" id="input" onkeyup="searchRes()">
@@ -30,17 +30,17 @@
                 </div>
             </div>
             <div class="well search-result">
-                <div class="row">
-                    <a href="#">
-                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">
-                            <img class="img-responsive" src="https://via.placeholder.com/400x200/7B68EE/000000" alt="">
-                        </div>
-                        <div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">
-                            <h3>Result name one</h3>
-                            <p>Ut quis libero id orci semper porta ac vel ante. In nec laoreet sapien. Nunc hendrerit
-                                ligula at massa sodales, ullamcorper rutrum orci semper.</p>
-                        </div>
-                    </a>
+                <div class="row"  id="tbody">
+<!--                    <a href="#">-->
+<!--                        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2">-->
+<!--                            <img class="img-responsive" src="https://via.placeholder.com/400x200/7B68EE/000000" alt="">-->
+<!--                        </div>-->
+<!--                        <div class="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">-->
+<!--                            <h3>Result name one</h3>-->
+<!--                            <p>Ut quis libero id orci semper porta ac vel ante. In nec laoreet sapien. Nunc hendrerit-->
+<!--                                ligula at massa sodales, ullamcorper rutrum orci semper.</p>-->
+<!--                        </div>-->
+<!--                    </a>-->
                 </div>
             </div>
             <div class="row">
@@ -58,7 +58,7 @@
         const searchval = $('#input').val();
         console.log(searchval);
         $.ajax({
-            url: 'http://localhost:8889/words/'+searchval,
+            url: 'http://localhost:8888/words/getWordsByNameLike/'+searchval,
             type: "GET",
             processData: false,
             contentType: false,
@@ -77,15 +77,15 @@
                     });
                 });
                 let value = '';
-                for (const item in r) {
+                for (var item in r) {
                     value += '<div className="row">';
                     value += '<a href="#">';
                     value += '<div className="col-xs-6 col-sm-3 col-md-3 col-lg-2">';
-                    value += '<img className="img-responsive" src="https://via.placeholder.com/400x200/7B68EE/000000"alt="">';
+                    // value += '<img className="img-responsive" src="https://via.placeholder.com/400x200/7B68EE/000000"alt="">';
                     value += '</div>';
                     value += '<div className="col-xs-6 col-sm-9 col-md-9 col-lg-10 title">';
-                    value += '<h3>asd</h3>';
-                    value += '<p>Ut quis libero id orci semper porta ac vel ante. In nec laoreet sapien. Nunchendrerit ligula at massa sodales, ullamcorper rutrum orci semper.</p>';
+                    value += '<h3>'+r[item].keyword+'</h3>';
+                    value += '<p>'+r[item].description+'</p>';
                     value += '</div>';
                     value += '</a>';
                     value += '</div>';

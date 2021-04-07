@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+    <title>CODDE FEST</title>
+    <link rel="icon" type="image/x-icon" href="assets/backend/main/img/favicon.ico" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link href="assets/backend/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/backend/main/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="assets/backend/main/css/authentication/form-1.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <link rel="stylesheet" type="text/css" href="assets/backend/main/css/forms/theme-checkbox-radio.css">
+    <link rel="stylesheet" type="text/css" href="assets/backend/main/css/forms/switches.css">
+
+    <!-- jquery validations -->
+    <script src="assets/backend/main/js/libs/jquery-3.1.1.min.js"></script>
+
+    <!-- Toastr -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    <style>
+        .error {
+            color: red;
+            font-weight: 700;
+            display: block;
+            padding: 6px 0;
+            font-size: 14px;
+        }
+
+        .form-control.error {
+            border-color: red;
+            padding: .375rem .75rem;
+
+        }
+
+        .input.error {
+            color: red;
+            font-weight: 700;
+            display: block;
+            padding: 6px 0;
+            font-size: 14px;
+            border-color: red;
+            padding: .375rem .75rem;
+        }
+    </style>
+</head>
+
+<body class="form">
+
+<div class="form-container">
+    <div class="form-form">
+        <div class="form-form-wrap">
+            <div class="form-container">
+                <div class="form-content">
+
+                    <h1 class="">Admin | LOGIN'</h1>
+                    <form id="loginform" class="text-left" action="" method="POST">
+                        <div class="form">
+
+                            <div id="username-field" class="field-wrapper input">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <input id="username" name="username" type="text" class="form-control" placeholder="username">
+                            </div>
+                            <div id="password-field" class="field-wrapper input mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                                <input id="password" name="password" type="password" value="" placeholder="password">
+                            </div>
+                            <div class="field-wrapper terms_condition">
+                                <div class="n-chk new-checkbox checkbox-outline-primary">
+                                    <label class="new-control new-checkbox checkbox-outline-primary">
+                                        <p style="background-color: red; color:white; border-radius:10px; padding-left:15px; " class="alert-danger"><?php echo $msg ?></p>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="d-sm-flex justify-content-between">
+                                <div class="field-wrapper toggle-pass">
+                                    <p class="d-inline-block">Show Password</p>
+                                    <label class="switch s-primary">
+                                        <input type="checkbox" id="toggle-password" class="d-none">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                                <div class="field-wrapper">
+                                    <button type="submit" name="submit" class="btn btn-primary" value="">LOGIN</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                    <p class="terms-conditions">Copyright ©️ <script>
+                            var dt = new Date();
+                            document.write(dt.getFullYear());
+                        </script> <a href="#">KRONICLES.COM</a>. All Rights Reserved. </a></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-image">
+        <div class="l-image">
+
+            <img  style="width: 80%; height:80%; margin-top:35px;" src="https://static.wixstatic.com/media/dbd4e4_64425db8f9804239a1e9ab6b9855f9e5~mv2_d_6471_2665_s_4_2.png/v1/fill/w_364,h_150,al_c,q_85,usm_0.66_1.00_0.01/White%20with%20grey.webp" alt="">
+        </div>
+    </div>
+</div>
+
+
+<!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+<script src="assets/backend/main/js/libs/jquery-3.1.1.min.js"></script>
+<script src="assets/backend/bootstrap/js/popper.min.js"></script>
+<script src="assets/backend/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- END GLOBAL MANDATORY SCRIPTS -->
+<script src="assets/backend/main/js/authentication/form-1.js"></script>
+<!-- jquery validation plugins -->
+<script src="assets/backend/plugins/validationengine/languages/jquery.validationEngine-en.js"></script>
+<script src="assets/backend/plugins/validationengine/jquery.validationEngine.js"></script>
+<script src="assets/backend/plugins/jquery-validation/jquery.validate.js"></script>
+<!-- Toastr -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+
+        $("#loginform").validate({
+            rules: {
+                admin_email: {
+                    required: true,
+                    email: true,
+                },
+                password: {
+                    required: true,
+
+                }
+            },
+            messages: {
+                admin_email: {
+                    required: "Please provide a valid password."
+                },
+                password: {
+                    required: "Please provide a valid password."
+                }
+            },
+            submitHandler: function (form) {
+
+            $.ajax({
+                url: '/authenticate',
+                type: "post",
+                data: new FormData(form),
+                processData: false,
+                contentType: false,
+                dataType: 'json',
+                cache: false,
+                async: false,
+                error: function (error) {
+
+                    $.toast({
+                        heading: 'Error',
+                        text: 'Operation failed!',
+                        position: 'top-right',
+                        loaderBg: '#effff8',
+                        icon: 'error',
+                        hideAfter: 3500
+                    });
+                },
+                success: function (r) {
+                    if (r.status == 200) {
+                        $.toast({
+                            heading: 'Success',
+                            text: r.message,
+                            position: 'top-right',
+                            loaderBg: '#effff8',
+                            icon: 'info',
+                            hideAfter: 3500
+                        });
+
+                      
+                    }
+
+                    if (r.status == 500) {
+                        $.toast({
+                            heading: 'Error',
+                            text: r.message,
+                            position: 'top-right',
+                            loaderBg: '#effff8',
+                            icon: 'error',
+                            hideAfter: 3500
+                        });
+                    }
+
+                }
+            });
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+
+        if (result.status === 200)
+            toastr["success"](result.message)
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+
+
+
+
+    });
+</script>
+
+</body>
+
+
+
+<!-- Mirrored from designreset.com/cork/ltr/demo3/auth_register.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Mar 2020 13:44:35 GMT -->
+
+</html>
